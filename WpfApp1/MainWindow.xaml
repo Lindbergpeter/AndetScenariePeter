@@ -1,0 +1,91 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Background="DarkSlateBlue"
+        Title="MainWindow" Height="450" Width="800">
+
+     <!--tabcontrol er til tilføjelse af faner--> 
+    <TabControl>
+        <!-- Fane 1: Film Oprettelse -->
+        <TabItem Header="Film Oprettelse">
+            <Grid Margin="20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- "Film Oprettelse" Venstre side (film-formular)  -->
+                <StackPanel Grid.Column="0" Margin="0,0,20,0">
+                    <TextBlock Text="Tilføj Ny Film" FontSize="20" FontWeight="Bold" Margin="0,0,0,20"/>
+
+                    <TextBlock Text="Titel:"/>
+                    <TextBox Name="tbTitel" Margin="0,0,0,10" Width="280" HorizontalAlignment="Left"/>
+
+                    <TextBlock Text="Varighed (minutter):"/>
+                    <TextBox Name="tbVarighed" Margin="0,0,0,10" Width="280" HorizontalAlignment="Left"/>
+
+                    <TextBlock Text="Genre:"/>
+                    <TextBox Name="tbGenre" Margin="0,0,0,10" Width="280" HorizontalAlignment="Left"/>
+
+                    <Button Content="Tilføj Film" Width="100" Click="TilføjFilm_Click" HorizontalAlignment="Left"/>
+                    <Button Content="Ryd" Width="100" Click="Ryd_Click" HorizontalAlignment="Left" Margin="0,10"/>
+                </StackPanel>
+
+                <!-- "Film Oprettelse" Højre side (Liste af film) -->
+                <ListBox Name="filmListBox" Grid.Column="1" Background="LightGray" Margin="0,0,0,0"/>
+            </Grid>
+        </TabItem>
+
+        <!-- Fane 2: Planlægning -->
+        <TabItem Header="Planlægning" Height="20" VerticalAlignment="Top">
+            <Grid Margin="20">
+                <StackPanel>
+                    <TextBlock Text="Planlæg en Filmvisning" FontSize="20" FontWeight="Bold" Margin="0,0,0,20"/>
+
+                    <!-- Vælg Biograf -->
+                    <TextBlock Text="Vælg Biograf:"/>
+                    <ComboBox Name="cbBiograf" Width="280" Margin="0,0,0,10" SelectionChanged="cbBiograf_SelectionChanged">
+                        <ComboBoxItem Content="Cinemaxx Århus"/>
+                        <ComboBoxItem Content="Nordisk Film Odense"/>
+                        <ComboBoxItem Content="Cinemaxx København"/>
+                        <ComboBoxItem Content="Nordisk Film Randers"/>
+                    </ComboBox>
+
+                    <!-- Vælg Sal -->
+                    <TextBlock Text="Vælg Sal:"/>
+                    <ComboBox Name="cbSal" Width="280" Margin="0,0,0,10" IsEnabled="False">
+                    </ComboBox>
+
+                    <!-- Vælg Spilletid -->
+                    <TextBlock Text="Vælg Spilletid:"/>
+                    <ComboBox Name="cbSpilletid" Width="280" Margin="0,0,0,10" IsEnabled="False">
+                        <ComboBoxItem Content="12:00"/>
+                        <ComboBoxItem Content="15:00"/>
+                        <ComboBoxItem Content="18:00"/>
+                        <ComboBoxItem Content="20:00"/>
+                    </ComboBox>
+
+                    <!-- Vælg Film -->
+                    <TextBlock Text="Vælg Film:"/>
+                    <ComboBox Name="cbFilm" Width="280" Margin="0,0,0,10" IsEnabled="False">
+                    </ComboBox>
+
+                    <!-- Planlægning -->
+                    <Button Content="Planlæg" Width="100" Click="Planlæg_Click"/>
+                </StackPanel>
+            </Grid>
+        </TabItem>
+        <!-- Fane 3: Planlægning -->
+        <TabItem Header="Oversigt">
+            <Grid Margin="20">
+                <StackPanel>
+                    <TextBlock Text="Planlagte Filmvisninger" FontSize="20" FontWeight="Bold" Margin="0,0,0,20"/>
+                    <ListBox Name="oversigtListBox" Background="LightGray" Margin="0,0,0,0"/>
+                </StackPanel>
+            </Grid>
+        </TabItem>
+    </TabControl>
+</Window>
