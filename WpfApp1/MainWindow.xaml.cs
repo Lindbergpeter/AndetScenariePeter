@@ -50,14 +50,14 @@
         //
         private void Planlæg_Click(object sender, RoutedEventArgs e)
         {   
-            //laver streng ud fra det der bliver valgt i combobox
+            //laver streng ud fra det der bliver valgt i comboboxxxx
             string biograf = cbBiograf.Text;
             string sal = cbSal.Text;
             string spilletid = cbSpilletid.Text;
             string film = cbFilm.Text;
 
             //Samler info til enkelt streng
-            string visningInfo = $"Biograf: {biograf}, Sal: {sal}, Tid: {spilletid}, Film: {film}";
+            string visningInfo = $"Biograf: {biograf}; Sal: {sal}; Tid: {spilletid}; Film: {film}";
             
             //tilføj til fanen "Oversigt"
             oversigtListBox.Items.Add(visningInfo);
@@ -79,7 +79,7 @@
                 //for løkke der springer overskrift over og læser derefter
                 for (int i = 1; i < lines.Length; i++)
                 {
-                    string[] data = lines[i].Split(',');
+                    string[] data = lines[i].Split(';');
 
                     //tilføjer som streng og tilføjer så de kan ses i listbox
                     string filmInfo = $"{data[0]} - {data[1]} minutter - {data[2]}";
@@ -139,7 +139,7 @@
                 {
                     sw.WriteLine("Titel,Varighed (Minutter),Genre");
                 }
-                sw.WriteLine($"{titel},{varighed},{genre}");
+                sw.WriteLine($"{titel};{varighed};{genre}");
             }
 
             cbFilm.Items.Add(titel);
